@@ -5,7 +5,7 @@ import java.util.*;
 public class MinOperation {
     public static void main(String [] args) {
         MinOperation mo = new MinOperation();
-        System.out.println(mo.minOperations(new int[]{3, 1, 2}));
+        System.out.println(mo.minOperations(new int[]{3, 4, 5}));
         //mo.reverse(new int[] {1,2,3,4,5,6, 7}, 1, 4);
     }
 

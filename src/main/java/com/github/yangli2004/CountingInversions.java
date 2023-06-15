@@ -17,8 +17,8 @@ public class CountingInversions {
       int mid = (arr.length - 1) / 2;
       int [] left = Arrays.copyOfRange(arr, 0, mid + 1);
       int [] right = Arrays.copyOfRange(arr, mid+1, arr.length);
-      mergeSort(left);
-      mergeSort(right);
+      left = mergeSort(left);
+      right = mergeSort(right);
 
       return merge(left, right);
    }
@@ -38,7 +38,7 @@ public class CountingInversions {
       while(i<left.length) {
          tmp[k++] = left[i++];
       }
-      while(j<left.length) {
+      while(j<right.length) {
          tmp[k++] = right[j++];
       }
 

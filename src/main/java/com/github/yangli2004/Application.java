@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.LongAccumulator;
 import java.util.function.LongBinaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Application {
@@ -105,10 +106,10 @@ public class Application {
       System.out.println(System.currentTimeMillis()-end);*/
       //pairSums(new int[] { 1, 5, 3, 3, 3 }, 6);
       //countSubArrays(new int[] {3, 4, 1, 6, 2});
-      findSignature(new int[] {2, 1});
+      //Arrays.stream(findSignature(new int[]{2, 2, 3})).forEach(i -> System.out.println(i));
    }
 
-   private static void findSignature(int[] arr){
+   private static int[] findSignature(int[] arr){
       int [] result = new int[arr.length];
       for(int i=0; i<arr.length; i++) {
          int v = arr[i];
@@ -120,6 +121,7 @@ public class Application {
          }
          result[i] = counter;
       }
+      return result;
    }
 
    private static void countSubArrays(int[] arr) {
@@ -153,6 +155,7 @@ public class Application {
       Arrays.stream(result).forEach(v ->System.out.println(v +","));
    }
 
+   //how many pairs of int sum = k
    private static void pairSums(int[] arr, int k) {
       Map<Integer, Integer> map = new HashMap<>();
       for (int v : arr) {

@@ -1,6 +1,7 @@
 package com.github.yangli2004;
 
 public class LeastCommonNumber {
+   //sorted arrays
    public static void main(String[] args) {
       int[] a1 = new int[] {1, 5, 6, 7, 17, 20};
       int[] a2 = new int[] {3, 4, 7, 9, 12, 16, 50};

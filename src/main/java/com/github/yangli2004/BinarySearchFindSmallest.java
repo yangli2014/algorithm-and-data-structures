@@ -83,7 +83,7 @@ public class BinarySearchFindSmallest {
         assertEquals(0, findMin(new int[]{6, 7, 0, 1, 2}));
         assertEquals(0, findMin(new int[]{4, 5, 6, 7, 0, 1}));
         assertEquals(1, findMin(new int[]{4, 4, 4, 4, 1}));
-        assertEquals(1, findMin(new int[]{1, 4, 4, 4, 4}));
+        assertEquals(1, findMin(new int[]{2, 1, 4, 4, 4, 4}));
         assertEquals(1, findMin(new int[]{10, 1, 10, 10, 10}));
         assertEquals(0, findMin(new int[]{4, 5, 6, 7, 0, 1, 4}));
         assertEquals(0, findMin(new int[]{0, 1, 4, 4, 5, 6, 7}));

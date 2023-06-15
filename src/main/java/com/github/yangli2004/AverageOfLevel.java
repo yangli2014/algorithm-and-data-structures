@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * This is binary tree width first traversal
+ */
 public class AverageOfLevel {
     public static class Node {
         int value;

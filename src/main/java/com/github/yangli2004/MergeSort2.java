@@ -10,41 +10,37 @@ public class MergeSort2 {
     }
 
     static void mergeSort(int[] arr) {
-        mergeSort(arr, arr.length);
-    }
-
-    static void mergeSort(int[] arr, int len) {
-        if (len<2) {
+        if (arr.length < 2) {
             return ;
         }
-        int mid = len / 2;
+        int mid = arr.length / 2;
         int [] left = new int[mid];
-        int [] right = new int[len -mid];
+        int [] right = new int[arr.length -mid];
         for(int i=0; i<mid; i++) {
             left[i] = arr[i];
         }
-        for(int i=0; i<len-mid; i++) {
+        for(int i=0; i<arr.length-mid; i++) {
             right[i] = arr[mid+i];
         }
-        mergeSort(left, mid);
-        mergeSort(right, len - mid);
-        merge(arr, left, right, mid, len-mid);
+        mergeSort(left);
+        mergeSort(right);
+        merge(arr, left, right);
     }
 
-    static void merge(int[] arr, int[] left, int [] right, int l, int r) {
-        int i=0, j=0, k=0;
-        while (i<l && j<r) {
-            if(left[i] <= right[j]) {
-                arr[k++] = left[i++];
+    static void merge(int[] arr, int[] left, int [] right) {
+        int r=0, l=0, a=0;
+        while (l<left.length && r<right.length) {
+            if(left[l] <= right[r]) {
+                arr[a++] = left[l++];
             } else {
-                arr[k++] = right[j++];
+                arr[a++] = right[r++];
             }
         }
-        while(i<l) {
-            arr[k++] = left[i++];
+        while(l<left.length) {
+            arr[a++] = left[l++];
         }
-        while (j<r) {
-            arr[k++] = right[j++];
+        while (r<right.length) {
+            arr[a++] = right[r++];
         }
     }
 }

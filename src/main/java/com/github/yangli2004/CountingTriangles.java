@@ -20,7 +20,8 @@ public class CountingTriangles {
     boolean isSame(Sides s1, Sides s2) {
         List<Integer> list1 = Arrays.asList(s1.a, s1.b, s1.c);
         List<Integer> list2 = Arrays.asList(s2.a, s2.b, s2.c);
-        int indx = list1.indexOf(list2.get(0));
+        return list2.containsAll(list1);
+        /*int indx = list1.indexOf(list2.get(0));
         for(int i=0; i<list2.size(); i++) {
             System.out.println("indx =" + indx);
             if(list2.get(i) != list1.get(indx)) {
@@ -31,7 +32,7 @@ public class CountingTriangles {
                 indx=0;
             }
         }
-        return true;
+        return true;*/
     }
 
     int countDistinctTriangles(ArrayList<Sides> arr) {

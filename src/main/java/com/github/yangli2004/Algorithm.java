@@ -2,11 +2,11 @@ package com.github.yangli2004;
 
 public class Algorithm {
    public static void main(String[] args) {
-      //BinarySearchWithRecursive();
-      //System.out.println(twoArrays(new int[]{1,2,3,7}, new int[]{ 4,5,6}));
-
-      //System.out.println(longestPalindrome("babad"));
-      knasack();
+      BinarySearchWithLoop();
+      BinarySearchWithRecursive();
+      System.out.println(twoArrays(new int[] {1, 3, 4, 8}, new int[] {2,3,6,9,10}));
+      System.out.println(longestPalindrome("forgeeksskeegfore"));
+      System.out.println(longestPalindromeV2("forgeeksskeegfore"));
    }
 
    private static void BinarySearchWithLoop() {
@@ -27,8 +27,9 @@ public class Algorithm {
          }
       }
       System.out.println(i);
-      if( i > 0 && i < arr.length  )
+      if( i > 0 && i < arr.length  ) {
          System.out.println(arr[i]);
+      }
    }
 
    private static void BinarySearchWithRecursive() {
@@ -52,6 +53,7 @@ public class Algorithm {
       return -1;
    }
 
+   // find the median of two sorted Array
    private static double twoArrays(int [] nums1, int [] nums2){
       int totalNums = nums1.length + nums2.length;
       boolean isOdd = totalNums % 2 == 0 ? false : true;
@@ -91,15 +93,23 @@ public class Algorithm {
             }
          }
 
-         if(isOdd) return cur;
-         else return (double)(cur + last)/2;
+         if(isOdd)  {
+            return cur;
+         }
+         else {
+            double result = (double) (cur + last) /2;
+            System.out.println(result);
+            return result;
+         }
       }
 
    }
 
    private static String longestPalindrome(String s) {
       int len = s.length();
-      if(len <=0) return s;
+      if(len == 0) {
+         return s;
+      }
 
       boolean[][] dp = new boolean[len][len];
 
@@ -128,14 +138,48 @@ public class Algorithm {
 
    }
 
+   private static String longestPalindromeHelp(String str, int left, int right) {
+      if(left > right) {
+         return null;
+      }
+      char leftChar = str.charAt(left), rightChar = str.charAt(right);
+      while (left >= 0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+         left--;
+         right++;
+         if(left>=0) {
+            leftChar = str.charAt(left);
+         }
+         if(right < str.length()) {
+            rightChar = str.charAt(right);
+         }
+      }
+      return str.substring(left + 1, right);
+   }
+   private static String longestPalindromeV2(String str) {
+      if(str == null) {
+         return null;
+      }
+      String longest = str.substring(0, 1);
+      for(int i = 0; i < str.length() -1; i++) {
+         String palindrome = longestPalindromeHelp(str, i, i);
+         System.out.println("find palindrome from odd case: " + palindrome);
+         if(palindrome.length() > longest.length()) {
+            longest = palindrome;
+            System.out.println("odd case - replace longest: " + longest  + " with " + palindrome);
+         }
+         palindrome = longestPalindromeHelp(str, i, i+1);
+         System.out.println("find palindrome from even case: " + palindrome);
+         if(palindrome.length() > longest.length()) {
+            longest = palindrome;
+            System.out.println("even case - replace longest: " + longest  + " with " + palindrome);
+         }
+      }
+      return longest;
+   }
 
    public static void knasack() {
       Item [] items = new Item[] {new Item(1, 6), new Item(2, 10), new Item(3, 12)};
       int maxW = 5, maxV =0;
-      for(int i =0; i< items.length; i ++) {
-
-      }
-
    }
 
 
